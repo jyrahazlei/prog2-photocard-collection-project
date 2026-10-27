@@ -34,3 +34,6 @@ target/
 
 # personal save data (sample file committed separately)
 data/collection.csv
+
+# macOS metadata
+.DS_Store
