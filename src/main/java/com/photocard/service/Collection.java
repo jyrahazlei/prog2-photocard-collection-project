@@ -1,0 +1,37 @@
+package com.photocard.service;
+
+import com.photocard.domain.Card;
+import com.photocard.domain.DuplicateCardException;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+public class Collection {
+
+    private final List<Card> cards = new ArrayList<>();
+
+    public void add(Card card) throws DuplicateCardException {
+        if (card == null) {
+            throw new IllegalArgumentException("Card must not be null.");
+        }
+        if (findById(card.getId()).isPresent()) {
+            throw new DuplicateCardException(card.getId());
+        }
+        cards.add(card);
+    }
+
+    public Optional<Card> findById(String id) {
+        for (Card card : cards) {
+            if (card.getId().equals(id)) {
+                return Optional.of(card);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public List<Card> getCards() {
+        return Collections.unmodifiableList(cards);
+    }
+}
