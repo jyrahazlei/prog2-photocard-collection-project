@@ -4,19 +4,19 @@ public abstract class Card {
 
     private final String id;
     private final String name;
-    private final String member;
+    private final Member member;
     private final double price;
     private CardStatus status;
 
-protected Card(String id, String name, String member, double price, CardStatus status) {
+protected Card(String id, String name, Member member, double price, CardStatus status) {
     if (id == null || id.isBlank()) {
         throw new IllegalArgumentException("Card id must not be blank.");
     }
     if (name == null || name.isBlank()) {
         throw new IllegalArgumentException("Card name must not be blank.");
     }
-    if (member == null || member.isBlank()) {
-        throw new IllegalArgumentException("Member must not be blank.");
+    if (member == null) {
+        throw new IllegalArgumentException("Member must not be null.");
     }
     if (price < 0) {
         throw new IllegalArgumentException("Price must not be negative.");
@@ -36,7 +36,7 @@ protected Card(String id, String name, String member, double price, CardStatus s
     public String getName () {
         return name;
     }
-    public String getMember () {
+    public Member getMember () {
         return member;
     }
     public double getPrice () {

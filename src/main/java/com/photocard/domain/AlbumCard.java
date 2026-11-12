@@ -6,7 +6,7 @@ public class AlbumCard extends Card {
 
     private final String albumName;
 
-    public AlbumCard(String id, String name, String member, double price, CardStatus status, String albumName) {
+    public AlbumCard(String id, String name, Member member, double price, CardStatus status, String albumName) {
         super(id, name, member, price, status);
         if (albumName == null || albumName.isBlank()) {
             throw new IllegalArgumentException("Album name must not be blank.");

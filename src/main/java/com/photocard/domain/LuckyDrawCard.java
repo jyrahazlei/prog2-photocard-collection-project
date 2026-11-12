@@ -6,7 +6,7 @@ public class LuckyDrawCard extends Card {
 
     private final String eventName;
 
-    public LuckyDrawCard(String id, String name, String member, double price, CardStatus status, String eventName) {
+    public LuckyDrawCard(String id, String name, Member member, double price, CardStatus status, String eventName) {
         super(id, name, member, price, status);
         if (eventName == null || eventName.isBlank()) {
             throw new IllegalArgumentException("Event name must not be blank.");
