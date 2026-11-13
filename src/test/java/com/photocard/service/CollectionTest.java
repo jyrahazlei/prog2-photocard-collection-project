@@ -47,4 +47,14 @@ class CollectionTest {
         collection.add(new LuckyDrawCard("L1", "Lucky card", member, 20, CardStatus.OWNED, "Fansign"));
         assertEquals(40.0, collection.getTotalValue(), 0.001);
     }
+
+    @Test
+    void wishlistContainsOnlyWantedCards() throws Exception {
+        Collection collection = new Collection();
+        collection.add(new AlbumCard("A1", "Owned card", member, 10, CardStatus.OWNED, "Album One"));
+        collection.add(new LuckyDrawCard("L1", "Wanted card", member, 20, CardStatus.WANTED, "Fansign"));
+        assertEquals(1, collection.getWishlist().size());
+        assertEquals("L1", collection.getWishlist().get(0).getId());
+        assertEquals(1, collection.getByStatus(CardStatus.OWNED).size());
+    }
 }
