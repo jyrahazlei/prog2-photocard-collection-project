@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Comparator;
 
 public class Collection {
 
@@ -56,6 +57,21 @@ public class Collection {
 
     public List<Card> getWishlist() {
         return getByStatus(CardStatus.WANTED);
+    }
+
+    public static final Comparator<Card> BY_MEMBER =
+            Comparator.comparing(card -> card.getMember().getName());
+
+    public static final Comparator<Card> BY_NAME =
+            Comparator.comparing(Card::getName);
+
+    public static final Comparator<Card> BY_TRADE_VALUE =
+            Comparator.comparingDouble(Card::getTradeValue).reversed();
+
+    public List<Card> getSortedBy(Comparator<Card> comparator) {
+        List<Card> sorted = new ArrayList<>(cards);
+        sorted.sort(comparator);
+        return sorted;
     }
 
     public List<Card> getCards() {

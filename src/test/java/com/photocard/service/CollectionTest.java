@@ -57,4 +57,15 @@ class CollectionTest {
         assertEquals("L1", collection.getWishlist().get(0).getId());
         assertEquals(1, collection.getByStatus(CardStatus.OWNED).size());
     }
+
+    @Test
+    void cardsCanBeSortedByNameMemberAndTradeValue() throws Exception {
+        Collection collection = new Collection();
+        Member jiwoo = new Member("Jiwoo");
+        collection.add(new AlbumCard("A1", "Zeta", member, 10, CardStatus.OWNED, "Album One"));
+        collection.add(new LuckyDrawCard("L1", "Alpha", jiwoo, 20, CardStatus.OWNED, "Fansign"));
+        assertEquals("L1", collection.getSortedBy(Collection.BY_NAME).get(0).getId());
+        assertEquals("A1", collection.getSortedBy(Collection.BY_MEMBER).get(0).getId());
+        assertEquals("L1", collection.getSortedBy(Collection.BY_TRADE_VALUE).get(0).getId());
+    }
 }
