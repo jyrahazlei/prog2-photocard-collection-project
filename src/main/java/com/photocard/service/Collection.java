@@ -31,6 +31,18 @@ public class Collection {
         return Optional.empty();
     }
 
+    public boolean remove(String id) {
+        return cards.removeIf(card -> card.getId().equals(id));
+    }
+
+    public double getTotalValue() {
+        double total = 0;
+        for (Card card : cards) {
+            total += card.getTradeValue();
+        }
+        return total;
+    }
+
     public List<Card> getCards() {
         return Collections.unmodifiableList(cards);
     }
