@@ -53,7 +53,15 @@ protected Card(String id, String name, Member member, double price, CardStatus s
         this.status = status;
     }
 
-    public abstract double getTradeValue ();
+    public abstract double getTradeValue();
+
+    public abstract String toCsvLine();
+
+    protected final String buildCsvLine(String type, String extra) {
+        String groupName = member.getGroup() == null ? "" : member.getGroup().getName();
+        return String.join(",", type, id, name, member.getName(), groupName,
+                String.valueOf(price), status.name(), extra);
+    }
 }
 
 
