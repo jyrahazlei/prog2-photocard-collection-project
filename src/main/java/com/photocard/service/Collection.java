@@ -2,6 +2,7 @@ package com.photocard.service;
 
 import com.photocard.domain.Card;
 import com.photocard.domain.DuplicateCardException;
+import com.photocard.domain.CardStatus;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,6 +42,20 @@ public class Collection {
             total += card.getTradeValue();
         }
         return total;
+    }
+
+    public List<Card> getByStatus(CardStatus status) {
+        List<Card> result = new ArrayList<>();
+        for (Card card : cards) {
+            if (card.getStatus() == status) {
+                result.add(card);
+            }
+        }
+        return result;
+    }
+
+    public List<Card> getWishlist() {
+        return getByStatus(CardStatus.WANTED);
     }
 
     public List<Card> getCards() {
