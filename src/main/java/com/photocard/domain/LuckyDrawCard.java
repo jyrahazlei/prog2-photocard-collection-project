@@ -22,4 +22,9 @@ public class LuckyDrawCard extends Card {
     public double getTradeValue() {
         return getPrice() * TRADE_MULTIPLIER;
     }
+
+    @Override
+    public String toCsvLine() {
+        return buildCsvLine("LUCKY", eventName);
+    }
 }
