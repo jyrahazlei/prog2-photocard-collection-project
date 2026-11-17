@@ -3,6 +3,6 @@ package com.photocard.domain;
 public class DuplicateCardException extends Exception {
 
     public DuplicateCardException(String id) {
-        super("A card with id " + " already exists.");
+        super("A card with id " + id + " already exists.");
     }
 }
