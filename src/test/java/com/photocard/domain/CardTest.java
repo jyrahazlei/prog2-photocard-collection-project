@@ -23,4 +23,11 @@ class CardTest {
         assertThrows(IllegalArgumentException.class,
                 () -> new AlbumCard("A2", "Card Three", member,-5.0, CardStatus.OWNED, "Album X"));
     }
+
+    @Test
+    void blankNameIsRejected() {
+        Member member = new Member("Member One");
+        assertThrows(IllegalArgumentException.class,
+                () -> new AlbumCard("A3", " ", member, 5.0, CardStatus.OWNED, "Album X"));
+    }
 }
