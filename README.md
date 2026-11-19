@@ -48,8 +48,8 @@ Choose 1-6: 3
 Sort by: 1 = member, 2 = name, 3 = trade value (highest first)
 Choose 1-3: 3
 L1 | Solo Card | Mina (solo) | WANTED | price 10.00 | trade value 15.00
-A2 | Jiwoong Card | Jiwoong (AHOF) | WANTED | price 6.50 | trade value 6.50
-A1 | Hanbin Card | Hanbin (AHOF) | OWNED | price 5.00 | trade value 5.00
+A2 | Park Han Card | Park Han (AHOF) | WANTED | price 6.50 | trade value 6.50
+A1 | JL Card | JL (AHOF) | OWNED | price 5.00 | trade value 5.00
 ```
 
 - **Add a card:** choose type (A = album, L = lucky draw), then id, name, member, group (empty for a solo artist), price, status (`OWNED` or `WANTED`) and album or event name.
@@ -62,7 +62,7 @@ Bad input (a price that is not a number, a negative price, an unknown status, an
 
 ### File format
 
-One card per line, 8 fields, no header: `TYPE,id,name,memberName,groupName,price,status,extra`. `TYPE` is `ALBUM` or `LUCKY`, `groupName` is empty for a solo artist, `extra` is the album name or event name. Example: `ALBUM,A1,Hanbin Card,Hanbin,AHOF,5.0,OWNED,Album One`. Names cannot contain commas.
+One card per line, 8 fields, no header: `TYPE,id,name,memberName,groupName,price,status,extra`. `TYPE` is `ALBUM` or `LUCKY`, `groupName` is empty for a solo artist, `extra` is the album name or event name. Example: `ALBUM,A1,JL Card,JL,AHOF,5.0,OWNED,Album One`. Names cannot contain commas.
 
 ## Implemented requirements
 
