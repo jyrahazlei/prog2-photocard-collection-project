@@ -28,10 +28,10 @@ class ConsoleMenuTest {
         Collection collection = new Collection();
 
         String output = run(collection, file,
-                "1\nA\nA1\nHanbin Card\nHanbin\nAHOF\n5.0\nOWNED\nAlbum One\n3\n1\n6\n");
+                "1\nA\nA1\nJL Card\nJL\nAHOF\n5.0\nOWNED\nAlbum One\n3\n1\n6\n");
 
         assertEquals(1, collection.getCards().size());
-        assertTrue(output.contains("A1 | Hanbin Card | Hanbin (AHOF)"));
+        assertTrue(output.contains("A1 | JL Card | JL (AHOF)"));
         assertEquals(1, CardStorage.load(file).getCards().size());
     }
 

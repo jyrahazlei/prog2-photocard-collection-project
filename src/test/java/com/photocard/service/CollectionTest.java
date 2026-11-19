@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 class CollectionTest {
 
-    private final Member member = new Member("Hanbin");
+    private final Member member = new Member("JL");
 
     @Test
     void addedCardCanBeFound() throws Exception {

@@ -14,10 +14,10 @@ class CardFactoryTest {
 
     @Test
     void albumLineBuildsAnAlbumCardWithItsGroup() {
-        Card card = CardFactory.fromCsvLine("ALBUM,A1,Hanbin Card,Hanbin,AHOF,5.0,OWNED,Album One");
+        Card card = CardFactory.fromCsvLine("ALBUM,A1,JL Card,JL,AHOF,5.0,OWNED,Album One");
         assertTrue(card instanceof AlbumCard);
         assertEquals("A1", card.getId());
-        assertEquals("Hanbin", card.getMember().getName());
+        assertEquals("JL", card.getMember().getName());
         assertEquals(5.0, card.getTradeValue());
     }
 
@@ -32,7 +32,7 @@ class CardFactoryTest {
     @Test
     void unknownTypeIsRejected() {
         assertThrows(IllegalArgumentException.class,
-                () -> CardFactory.fromCsvLine("POB,P1,Card,Hanbin,AHOF,5.0,OWNED,Shop"));
+                () -> CardFactory.fromCsvLine("POB,P1,Card,JL,AHOF,5.0,OWNED,Shop"));
     }
 
     @Test
@@ -40,6 +40,6 @@ class CardFactoryTest {
         assertThrows(IllegalArgumentException.class,
                 () -> CardFactory.fromCsvLine("ALBUM,A1,Card"));
         assertThrows(IllegalArgumentException.class,
-                () -> CardFactory.fromCsvLine("ALBUM,A1,Card,Hanbin,AHOF,abc,OWNED,Album One"));
+                () -> CardFactory.fromCsvLine("ALBUM,A1,Card,JL,AHOF,abc,OWNED,Album One"));
     }
 }

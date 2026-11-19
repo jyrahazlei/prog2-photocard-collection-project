@@ -27,9 +27,9 @@ class CardStorageTest {
     @Test
     void saveThenLoadGivesTheSameCards() throws Exception {
         Collection original = new Collection();
-        Member hanbin = new Member("Hanbin", new Group("AHOF"));
+        Member jl = new Member("JL", new Group("AHOF"));
         Member mina = new Member("Mina");
-        original.add(new AlbumCard("A1", "Hanbin Card", hanbin, 5.0, CardStatus.OWNED, "Album One"));
+        original.add(new AlbumCard("A1", "JL Card", jl, 5.0, CardStatus.OWNED, "Album One"));
         original.add(new LuckyDrawCard("L1", "Solo Card", mina, 10.0, CardStatus.WANTED, "Fansign"));
 
         Path file = tempDir.resolve("collection.csv");
@@ -58,7 +58,7 @@ class CardStorageTest {
     void brokenLineGivesAClearErrorWithTheLineNumber() throws Exception {
         Path file = tempDir.resolve("broken.csv");
         Files.writeString(file,
-                "ALBUM,A1,Hanbin Card,Hanbin,AHOF,5.0,OWNED,Album One\n"
+                "ALBUM,A1,JL Card,JL,AHOF,5.0,OWNED,Album One\n"
                         + "ALBUM,A2,only,three\n");
 
         IOException error = assertThrows(IOException.class, () -> CardStorage.load(file));
