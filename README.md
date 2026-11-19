@@ -16,7 +16,7 @@ Programming 2 (Java OOP) project, University of Pécs.
 ./mvnw clean test
 ```
 
-This compiles the project and runs the 21 JUnit tests.
+This compiles the project and runs the 22 JUnit tests.
 
 ## Run
 
@@ -71,7 +71,7 @@ One card per line, 8 fields, no header: `TYPE,id,name,memberName,groupName,price
 - **Generics and sorting:** `List<Card>`, `Optional<Card>`, three `Comparator<Card>` constants.
 - **Validation and a custom exception:** constructors reject invalid values; checked `DuplicateCardException`.
 - **Persistence:** CSV file with try-with-resources (`CardStorage`).
-- **Tests:** 21 JUnit tests that pass from a clean checkout.
+- **Tests:** 22 JUnit tests that pass from a clean checkout.
 - **Design pattern:** Factory (below).
 
 ## Design pattern: Factory
